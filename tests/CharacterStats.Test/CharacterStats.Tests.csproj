@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -16,12 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CharacterStats.Api\CharacterStats.Api.csproj" />
-    <ProjectReference Include="..\CharacterStats\CharacterStats.csproj" />
+    <ProjectReference Include="..\..\src\CharacterStats.Api\CharacterStats.Api.csproj" />
+    <ProjectReference Include="..\..\src\CharacterStats\CharacterStats.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
-
 </Project>
