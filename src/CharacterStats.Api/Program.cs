@@ -1,5 +1,5 @@
-using CharacterStats.Api;
-using CharacterStats.Api.Contracts;
+using CharacterStats.Api.Contracts.Requests;
+using CharacterStats.Api.Contracts.Responses;
 using CharacterStats.Models;
 using CharacterStats.Services;
 
@@ -13,12 +13,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-var characters = new List<Character>
-{
-    new(1, "Chewie", 100, 20, 15),
-    new(2, "Aragorn", 100, 40, 30),
-    new(3, "Link", 100, 30, 10),
-};
+List<Character> characters = [];
 
 app.MapGet("/characters", () => characters);
 
@@ -65,6 +60,15 @@ app.MapPost(
             return Results.Conflict(e.Message);
         }
     }
+);
+
+app.MapPost(
+    "/characters/create", 
+    (CreateCharacterRequest request) =>
+    {
+        characters.Add(new(request.Name, request.MaxHealth, request.AttackPower, request.DefensePower));
+    }
+
 );
 
 app.Run();

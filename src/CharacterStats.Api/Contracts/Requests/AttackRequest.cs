@@ -1,4 +1,4 @@
-﻿namespace CharacterStats.Api.Contracts
+﻿namespace CharacterStats.Api.Contracts.Requests
 {
     public record AttackRequest(int DefenderId);
 }

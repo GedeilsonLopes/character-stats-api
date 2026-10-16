@@ -1,7 +1,6 @@
 using System.Net;
 using System.Net.Http.Json;
-using CharacterStats.Api;
-using CharacterStats.Api.Contracts;
+using CharacterStats.Api.Contracts.Responses;
 using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace CharacterStats.Tests;
@@ -110,13 +109,3 @@ public class CharacterStatsApiTests : IAsyncLifetime
         Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
     }
 }
-
-public record CharacterResponse(
-    int Id,
-    string Name,
-    int MaxHealth,
-    int CurrentHealth,
-    int AttackPower,
-    int DefensePower,
-    bool IsAlive
-);

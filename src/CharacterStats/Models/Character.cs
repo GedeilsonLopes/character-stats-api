@@ -2,26 +2,25 @@
 {
     public class Character
     {
+        private static int _nextId = 1;
+
         public int Id { get; }
         public string Name { get; }
-
         public int MaxHealth { get; }
-
         public int CurrentHealth { get; private set; }
         public int AttackPower { get; }
         public int DefensePower { get; }
 
         public bool IsAlive => CurrentHealth > 0;
 
-        public Character(int id, string name, int maxHealth, int attackPower, int defensePower)
+        public Character(string name, int maxHealth, int attackPower, int defensePower)
         {
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(id);
             ArgumentException.ThrowIfNullOrWhiteSpace(name);
             ArgumentOutOfRangeException.ThrowIfNegativeOrZero(maxHealth);
             ArgumentOutOfRangeException.ThrowIfNegativeOrZero(attackPower);
             ArgumentOutOfRangeException.ThrowIfNegative(defensePower);
 
-            Id = id;
+            Id = _nextId++;
             Name = name;
             MaxHealth = maxHealth;
             CurrentHealth = MaxHealth;

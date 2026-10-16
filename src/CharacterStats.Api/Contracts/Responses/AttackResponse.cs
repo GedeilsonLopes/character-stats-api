@@ -1,4 +1,4 @@
-﻿namespace CharacterStats.Api
+﻿namespace CharacterStats.Api.Contracts.Responses
 {
     public record AttackResponse(
         int AttackerId,
